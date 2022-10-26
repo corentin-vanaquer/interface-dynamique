@@ -1,0 +1,75 @@
+body {
+  background-image: linear-gradient(to top right, #4354C7, #6C5BCF);
+  min-height: 100vh;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#invader {
+  margin: auto 0;
+}
+
+.configuration {
+  background-color: #695ACE;
+  padding: 2rem;
+  text-align: center;
+  transform: translateY(0);
+  transition: 0.25s transform;
+}
+
+.off {
+  transform: translateY(-100%);
+}
+
+.configuration-input {
+  padding: 1rem;
+  border-radius: 1rem 0 0 1rem;
+  border: 0;
+}
+.configuration-input:focus {
+  background-color: #eee;
+}
+
+.configuration-button {
+  padding: 1rem;
+  border-radius: 0 1rem 1rem 0;
+  border: 0;
+  background-color: #9B68E4;
+  color: white;
+}
+
+.configuration-button:hover, .configuration-button:focus {
+  background-color: black;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.cell {
+  width: 30px;
+  height: 30px;
+  background-color: grey;
+  border: 2px solid darkgray;
+}
+
+.cell--dark {
+  background-color: #222;
+  border-color: black;
+}
+.cell--light {
+  background-color: white;
+  border-color: #ccc;
+}
+
+#toggler {
+  position: fixed;    
+  z-index: 2;
+  left: 1rem;
+  top: 1rem;
+}
