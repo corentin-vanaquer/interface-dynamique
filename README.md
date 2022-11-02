@@ -5,4 +5,4 @@
 - Cette application à pour fonctionnalité de changer la couleur des pixels au click et de changer la taille de la grille à travers un formulaire.
 
 
-![invader-img](img/invader.png)
+![invader-img](img/invader-raw.png))
