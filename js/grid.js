@@ -1,48 +1,48 @@
 const grid = {
 
   /**
-   * Méthode pour changer la couleur du pixel
+   * Method to change the pixel color
    * @param {*} event 
    */
   handleClick: function(event) {
-    // dans l'objet event je trouve une propriété target correspondant à l'élement qui a déclenché l'événement cad ici l'Element cliqué
+    // event.target allow me to know which element created an event
     const clickedCell = event.target;
-    // si la condition renvoi true
+    // if true
     if (clickedCell.classList.contains('cell--light')) {
-      // On change de class
+      // change our class
       clickedCell.classList.remove('cell--light');
       clickedCell.classList.add('cell--dark');
     }
     else {
-      // sinon l'inverse
+      // otherwise, the opposite
       clickedCell.classList.remove('cell--dark');
       clickedCell.classList.add('cell--light');
     }
   },
 
   /**
-   * Méthode pour générer un grille
+   * Method to generate a grid
    * @param {*} size 
    */
   generate: function (size) {
-    // cibler l'ardoise de jeu
+    // handle the grid
     const gameElement = document.querySelector('#invader');
-    // j'efface déjà l'existant
+    // erase the existant
     gameElement.innerHTML = '';
 
-    // je répète 8 fois
+    // loop 8 times
     for (let counterRow = 0; counterRow < size; counterRow++) {
-      // créer une ligne
+      // create a lign
       const rowElement = document.createElement('div');
       rowElement.className = 'row';
       gameElement.appendChild(rowElement);
 
-      // je répète 8 fois
+      // loop 8 times
       for (let counterCell = 0; counterCell < size; counterCell++) {
-        // créer une case
+        // create boxes
         const cellElement = document.createElement('div');
         cellElement.className = 'cell';
-        // j'appel ma méthode handleClick sur l'écoute d'un click d'un cellElement
+        // I call my method handleClick on a event listener
         cellElement.addEventListener('click', grid.handleClick);
         rowElement.appendChild(cellElement);
       }

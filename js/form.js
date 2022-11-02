@@ -1,40 +1,39 @@
 const form = {
   create: function() {
-    // cibler le parent
+    // target parent
     form.element = document.querySelector('.configuration');
-    // créer l'élement
-    // je fais une propriété sur mon objet qui est lui même global
-    // ainsi j'aurai accès à cette propriété ailleurs
+  // create element
     form.inputElement = document.createElement('input');
-    // le configurer
+    // configured
     form.inputElement.placeholder = 'Taille de la grille';
-    // Comme notre champ n'a pas de label on peut lui préciser un attribut aria-label pour les lecteurs d'écran
+    // aria-label for screen reader
     form.inputElement.setAttribute('aria-label', 'Taille de la grille');
     form.inputElement.className = 'configuration-input';
     form.inputElement.type = 'number';
-    // insérer dans le parent
+    // insert in parent
     form.element.appendChild(form.inputElement);
 
-    // créer un deuxième élement
+    // create second element
     const buttonElement = document.createElement('button');
     buttonElement.textContent = 'Valider';
     buttonElement.type = 'submit';
     buttonElement.className = 'configuration-button';
     form.element.appendChild(buttonElement);
 
-    // je veux réagir à la soumission du formulaire
+    // call "handleSubmit" when submit form
     form.element.addEventListener('submit', form.handleSubmit);
 
     form.togglerElement = document.getElementById('toggler');
+    // hide the form on click
     form.togglerElement.addEventListener('click', form.handleToggleClick);
   },
 
   handleSubmit: function(event) {
-    // j'empeche le comportement par défaut, ici l'actualisation de la page à la soumission du form
+    // stop default behavior, in this case a page refresh when the form is submit
     event.preventDefault();
-    // je récupère la taille demandée via l'Element qui représente l'input
+    // fetch the size present in the input
     const value = form.inputElement.valueAsNumber;
-    // je regénère la grille
+    // generate the grid with the new value
     grid.generate(value);
   },
 
