@@ -1,4 +1,4 @@
-# CP3-interface-dynamique
+# interface-dynamique
 
 - Conception d'une application JavaScript pour créer une ardoise de dessin en pixel art.
 
